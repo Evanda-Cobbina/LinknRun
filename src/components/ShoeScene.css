@@ -1,0 +1,53 @@
+.shoe-stage {
+  position: absolute;
+  inset: 0;
+  /* Lets a single finger still scroll the page vertically. Only a
+     TWO-finger touch (handled in ShoeScene.tsx) takes over and blocks
+     default scrolling, so this never fights normal page scrolling. */
+  touch-action: pan-y;
+}
+
+.shoe-canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+.shoe-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  display: none; /* enabled per-device by the media queries below */
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-ash);
+  background: var(--color-panel-alt);
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  padding: 0.4rem 0.8rem;
+  pointer-events: none;
+  transition: opacity var(--dur-med) var(--ease-out);
+}
+
+/* Real hover-capable pointer (mouse/trackpad): show the hover hint. */
+@media (hover: hover) and (pointer: fine) {
+  .shoe-hint-hover {
+    display: inline-flex;
+  }
+}
+
+/* Touch device: show the two-finger hint instead. */
+@media (pointer: coarse) {
+  .shoe-hint-touch {
+    display: inline-flex;
+  }
+}
+
+.shoe-hint.is-dismissed {
+  opacity: 0;
+}

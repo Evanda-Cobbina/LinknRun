@@ -1,0 +1,74 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  /* Horizontal gutter moved off .hero and onto .hero-inner below —
+     see the comment there for why. Vertical padding stays here. */
+  padding: clamp(6rem, 12vw, 9rem) 0 4rem;
+  overflow: hidden;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  /*
+    This now mirrors .section's box model exactly: max-width,
+    centering margin, AND the horizontal gutter padding all applied
+    to the same element, in the same order. That's what guarantees
+    the Hero headline's left edge lands on the exact same pixel as
+    About/Showcase/Team's headlines below it.
+
+    Earlier version put the horizontal padding on .hero (the outer,
+    full-bleed element) and centered a narrower box inside that — two
+    different operations in the opposite order from .section, which
+    still left a small but real mismatch even after the first fix.
+  */
+  max-width: var(--content-max);
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 var(--gutter);
+  display: flex;
+  align-items: center;
+}
+
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  /* The 760px reading-width cap now lives here, on the text column
+     itself, instead of on the outer centering container. */
+  max-width: 760px;
+}
+
+.hero h1 {
+  font-size: var(--step-h1);
+  font-weight: 700;
+}
+
+.hero-sub {
+  max-width: 46ch;
+  font-size: 1.1rem;
+  color: var(--color-ash);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 0.6rem;
+}
+
+.hero-fade {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 30%;
+  background: linear-gradient(to bottom, transparent, var(--color-void));
+  pointer-events: none;
+}
+
+@media (max-width: 860px) {
+  .hero-sub {
+    max-width: none;
+  }
+}

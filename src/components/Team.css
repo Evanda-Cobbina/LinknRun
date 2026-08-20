@@ -1,0 +1,74 @@
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.team-card {
+  background: var(--color-panel);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  transition: border-color var(--dur-fast) var(--ease-out);
+}
+
+.team-card:hover {
+  border-color: var(--color-route);
+}
+
+.team-photo {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  margin-bottom: 0.4rem;
+}
+
+.team-card h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.team-card .tag {
+  align-self: flex-start;
+}
+
+.team-card p {
+  font-size: 0.92rem;
+}
+
+.team-socials {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 0.4rem;
+}
+
+.team-socials a {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--color-line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--color-ash);
+  transition: border-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+
+.team-socials a:hover {
+  border-color: var(--color-signal);
+  color: var(--color-signal);
+}
+
+@media (max-width: 860px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+}

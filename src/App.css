@@ -1,0 +1,12 @@
+/*
+  Everything except CursorRings lives inside this wrapper. Giving it an
+  explicit position + z-index guarantees it paints above the rings
+  layer (which sits at a very low z-index) no matter what stacking
+  rules any individual section adds later — instead of relying on the
+  browser's default "static content stacks above negative z-index"
+  behavior, which is easy to accidentally break.
+*/
+.page-content {
+  position: relative;
+  z-index: 1;
+}

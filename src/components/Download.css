@@ -1,0 +1,194 @@
+/*
+  A tall scroll "track" containing a position: sticky stage. The
+  stage locks in place for the whole height of this track, giving the
+  4 connector-line callouts room to each take their own slice of
+  scroll before the section releases and the page continues normally
+  to Team/Footer. Same underlying idea as the sticky-pinned text used
+  elsewhere on the site — just applied to a whole stage instead of a
+  single text block.
+*/
+.get-moving-track {
+  position: relative;
+  height: 340svh;
+}
+
+.get-moving-sticky {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.get-moving-stage {
+  width: 100%;
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  display: grid;
+  grid-template-columns: minmax(240px, 360px) 1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+.get-moving-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.get-moving-copy h2 {
+  font-size: var(--step-h2);
+  font-weight: 600;
+}
+
+.download-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.4rem;
+}
+
+.download-note {
+  font-size: 0.85rem;
+  color: var(--color-ash-dim);
+}
+
+/*
+  The frame itself no longer clips anything — only the inner
+  ".get-moving-shoe-visual" layer (the rounded panel actually holding
+  the 3D canvas) does. That split exists specifically so the callout
+  labels, which sit in a sibling layer covering the whole frame, can
+  extend right up to — or slightly past — the visual's rounded edge
+  without being cut off by it. The inset on .get-moving-shoe-visual
+  below is the actual buffer — labels have that ring of space around
+  the visual to sit in.
+*/
+.get-moving-shoe-frame {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  max-height: 78svh;
+}
+
+.get-moving-shoe-visual {
+  position: absolute;
+  /*
+    Inset rather than 0 — this is the actual buffer zone. The callouts
+    layer below stays at inset: 0 (the full frame), so labels have
+    this ring of space around the visual to sit in without being
+    clipped by its rounded corners.
+  */
+  inset: 1.75rem;
+  border-radius: var(--radius-lg);
+  /* A warm accent glow layered under the panel gradient — bolder and
+     more alive than a flat panel-to-void fade, and tied to the theme's
+     actual signal color so it stays correct in both modes. */
+  background:
+    radial-gradient(circle at 26% 20%, color-mix(in srgb, var(--color-signal) 30%, transparent), transparent 62%),
+    linear-gradient(160deg, var(--color-panel-alt), var(--color-void) 78%);
+  overflow: hidden;
+}
+
+.get-moving-callouts {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.callout-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.callout-lines line {
+  /*
+    Deliberately NOT --color-signal: the shoe's own body/trim swap
+    between orange and near-black depending on theme, and the line
+    was using that same orange — meaning it was visually vanishing
+    into the shoe whenever it crossed an orange section. --color-ash
+    is a neutral mid-grey that reads clearly against both the shoe's
+    orange and its near-black, in either theme, without introducing a
+    brand-new accent color to the site.
+  */
+  stroke: var(--color-ash);
+  stroke-width: 0.7;
+  vector-effect: non-scaling-stroke;
+}
+
+.callout-label {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: 172px;
+  padding: 0.65rem 0.8rem;
+  border-radius: var(--radius-sm);
+  background: var(--color-panel-alt);
+  border: 1px solid var(--color-line);
+}
+
+.callout-label-title {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-signal);
+}
+
+.callout-label-body {
+  font-size: 0.92rem;
+  line-height: 1.4;
+  color: var(--color-ash);
+}
+
+@media (max-width: 900px) {
+  .get-moving-track {
+    /* Shorter scrub range on mobile — same 4 stops, less scrolling
+       needed to get through all of them. */
+    height: 260svh;
+  }
+
+  .get-moving-stage {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .get-moving-shoe-frame {
+    max-height: 50svh;
+  }
+
+  .get-moving-shoe-visual {
+    inset: 1.1rem;
+  }
+
+  .callout-label {
+    width: 134px;
+    padding: 0.5rem 0.65rem;
+  }
+
+  .callout-label-title {
+    font-size: 0.68rem;
+  }
+
+  .callout-label-body {
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .get-moving-shoe-frame {
+    max-height: 46svh;
+  }
+
+  .get-moving-shoe-visual {
+    inset: 0.85rem;
+  }
+
+  .callout-label {
+    width: 114px;
+  }
+}

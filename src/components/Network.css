@@ -1,0 +1,50 @@
+.network-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.network-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.network-illustration {
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-line);
+  box-shadow: var(--shadow-card-rest);
+  transition:
+    box-shadow var(--dur-med) var(--ease-out),
+    transform var(--dur-med) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out);
+}
+
+.network-card:hover .network-illustration {
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--color-route);
+  transform: translateY(-0.4rem);
+}
+
+.network-illustration svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.network-card h3 {
+  font-size: var(--step-h3);
+  font-weight: 600;
+}
+
+.network-card p {
+  font-size: 0.95rem;
+}
+
+@media (max-width: 860px) {
+  .network-grid {
+    grid-template-columns: 1fr;
+    max-width: 460px;
+    margin: 0 auto;
+  }
+}

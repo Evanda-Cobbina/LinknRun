@@ -1,0 +1,164 @@
+{
+  "brand": {
+    "name": "LinknRun",
+    "wordmarkImage": "/src/assets/placeholders/logo-mark.svg",
+    "tagline": "Running is better with someone next to you"
+  },
+  "nav": {
+    "links": [
+      { "label": "About", "href": "#about" },
+      { "label": "Connect", "href": "#network" },
+      { "label": "Showcase", "href": "#showcase" },
+      { "label": "Team", "href": "#team" }
+    ],
+    "ctaLabel": "Get the app"
+  },
+  "hero": {
+    "eyebrow": "Now building in Accra",
+    "headline": "Find your run. Find your people.",
+    "subhead": "LinknRun matches you with runners nearby, tracks every session, and keeps your streak alive. Running alone is optional now.",
+    "primaryCtaLabel": "Get LinknRun",
+    "secondaryCtaLabel": "See how it works"
+  },
+  "valueProps": [
+    {
+      "id": "partners",
+      "label": "Partners",
+      "headline": "Run with someone",
+      "body": "Match with joggers near you and turn a solo lap into a shared one."
+    },
+    {
+      "id": "streaks",
+      "label": "Streaks",
+      "headline": "Keep the fire burning",
+      "body": "Log a session each day and watch your streak grow, one run at a time."
+    },
+    {
+      "id": "sessions",
+      "label": "Sessions",
+      "headline": "Every run, tracked",
+      "body": "Distance, pace, calories. See exactly what each run cost and gave back."
+    },
+    {
+      "id": "social",
+      "label": "Social",
+      "headline": "Talk after you run",
+      "body": "Chat with your running circle straight from the app."
+    }
+  ],
+  "network": {
+    "eyebrow": "Find your people",
+    "headline": "Built to connect, not just track",
+    "body": "The map, the chat, and your friend list all work together so a run turns into a running circle.",
+    "features": [
+      {
+        "id": "map",
+        "headline": "See who's nearby",
+        "body": "Open the map and spot runners near you in real time. Send a link-up request and meet at the start line."
+      },
+      {
+        "id": "chat",
+        "headline": "Talk before, during, after",
+        "body": "Every running circle gets its own chat. Plan a route, share a pace, or just talk trash before the next run."
+      },
+      {
+        "id": "addFriend",
+        "headline": "Build your circle",
+        "body": "Add runners you meet as friends. Your circle grows with every route, and shows up first on the map."
+      }
+    ]
+  },
+  "showcase": {
+    "eyebrow": "Inside the app",
+    "headline": "Built for the road, not the boardroom",
+    "body": "A quick look at what waits on your phone once you're in.",
+    "frames": [
+      { "id": "home", "image": "/src/assets/placeholders/frame-home.svg", "caption": "Home & streak" },
+      { "id": "map", "image": "/src/assets/placeholders/frame-map.svg", "caption": "Find a route" },
+      { "id": "chat", "image": "/src/assets/placeholders/frame-chat.svg", "caption": "Talk to your circle" },
+      { "id": "profile", "image": "/src/assets/placeholders/frame-profile.svg", "caption": "Your profile" }
+    ]
+  },
+  "download": {
+    "eyebrow": "Get moving",
+    "headline": "LinknRun is almost here",
+    "body": "The Android build lands on Google Play soon. A direct download will follow.",
+    "links": {
+      "googlePlayUrl": "#",
+      "directDownloadUrl": "#",
+      "googlePlayLive": false,
+      "directDownloadLive": false
+    },
+    "highlights": [
+      {
+        "id": "logged",
+        "label": "Every run logged",
+        "body": "Distance, pace, and calories saved automatically."
+      },
+      {
+        "id": "nearby",
+        "label": "Partners nearby",
+        "body": "See runners close to you and send a link-up request."
+      },
+      {
+        "id": "chat",
+        "label": "Stay in touch",
+        "body": "Chat with your circle before and after every run."
+      },
+      {
+        "id": "streak",
+        "label": "Streaks that stick",
+        "body": "One session a day keeps the fire burning."
+      }
+    ]
+  },
+  "team": {
+    "eyebrow": "Who's behind this",
+    "headline": "Meet the team",
+    "body": "Three people building LinknRun, one commit and one run at a time.",
+    "members": [
+      {
+        "id": "member-1",
+        "name": "Full Name",
+        "role": "Role or title",
+        "photo": "/src/assets/placeholders/team-1.svg",
+        "bio": "Add a short bio here. A sentence or two on what they do and why they're building LinknRun.",
+        "socials": {
+          "instagram": "#",
+          "linkedin": "#"
+        }
+      },
+      {
+        "id": "member-2",
+        "name": "Full Name",
+        "role": "Role or title",
+        "photo": "/src/assets/placeholders/team-2.svg",
+        "bio": "Add a short bio here. A sentence or two on what they do and why they're building LinknRun.",
+        "socials": {
+          "linkedin": "#",
+          "tiktok": "#"
+        }
+      },
+      {
+        "id": "member-3",
+        "name": "Full Name",
+        "role": "Role or title",
+        "photo": "/src/assets/placeholders/team-3.svg",
+        "bio": "Add a short bio here. A sentence or two on what they do and why they're building LinknRun.",
+        "socials": {
+          "facebook": "#",
+          "youtube": "#",
+          "linkedin": "#"
+        }
+      }
+    ]
+  },
+  "footer": {
+    "tagline": "LinknRun. Built to move.",
+    "links": [
+      { "label": "Privacy", "href": "#" },
+      { "label": "Terms", "href": "#" },
+      { "label": "Contact", "href": "#" }
+    ]
+  }
+}

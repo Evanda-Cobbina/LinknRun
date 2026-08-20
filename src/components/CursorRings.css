@@ -1,0 +1,13 @@
+.cursor-rings {
+  /*
+    Absolutely positioned within its parent (Hero — see Hero.tsx),
+    not fixed to the viewport. Hero has position: relative and
+    overflow: hidden already, so this fills exactly the Hero section
+    and gets naturally clipped to it, even as rings drift near its
+    edges.
+  */
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
