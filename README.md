@@ -1,3 +1,5 @@
+HEAD
+
 # LinknRun website
 
 The public marketing site for LinknRun, the social jogging app by FlameCore.
@@ -104,3 +106,8 @@ the section `id`s in `App.tsx`.
 - Real team photos and bios
 - Real app screenshots in place of the abstract showcase placeholders
 - Deploy target / domain
+
+# LinknRun
+
+A marketing website for the LinknRun app.
+b16ea707d34798048fe14eea602acf6a6dd6fce8
