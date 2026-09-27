@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>LinknRun — Hero B Sample</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Unbounded:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --orange: #ff5a1f;
+        --ink: #151515;
+        --muted: #666;
+        --paper: #f5f3ee;
+        --line: #dedbd3;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: Inter, system-ui, sans-serif;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      .hero {
+        min-height: 100svh;
+        padding: 24px clamp(20px, 4vw, 64px) 40px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        position: relative;
+      }
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        z-index: 10;
+      }
+      .logo {
+        font-weight: 800;
+        font-size: 1.15rem;
+        letter-spacing: -0.04em;
+      }
+      .logo span {
+        color: var(--orange);
+      }
+      .nav-link {
+        font-size: 0.9rem;
+        font-weight: 600;
+        border: 1px solid var(--line);
+        padding: 11px 16px;
+        border-radius: 999px;
+        background: #ffffff99;
+      }
+      .hero-grid {
+        flex: 1;
+        width: min(1440px, 100%);
+        margin: clamp(35px, 7vh, 85px) auto 0;
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.95fr);
+        align-items: center;
+        gap: clamp(35px, 6vw, 100px);
+      }
+      .copy {
+        max-width: 680px;
+        position: relative;
+        z-index: 4;
+      }
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.78rem;
+        font-weight: 700;
+        margin-bottom: 22px;
+      }
+      .eyebrow:before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--orange);
+        box-shadow: 0 0 18px #ff5a1f73;
+      }
+      h1 {
+        font-family: Unbounded, Inter, sans-serif;
+        font-size: clamp(3rem, 6.5vw, 7rem);
+        line-height: 0.98;
+        letter-spacing: -0.07em;
+        margin: 0;
+      }
+      .outline {
+        color: transparent;
+        -webkit-text-stroke: 2px var(--orange);
+        text-shadow: 0 0 22px #ff5a1f29;
+      }
+      .intro {
+        max-width: 550px;
+        margin: 28px 0 30px;
+        color: var(--muted);
+        font-size: clamp(1rem, 1.3vw, 1.15rem);
+        line-height: 1.65;
+      }
+      .stores {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .store {
+        min-width: 178px;
+        padding: 12px 16px;
+        border-radius: 15px;
+        background: #111;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        transition: 0.25s;
+      }
+      .store:hover {
+        transform: translateY(-3px);
+        background: #242424;
+      }
+      .store-icon {
+        width: 28px;
+        height: 28px;
+        display: grid;
+        place-items: center;
+        font-size: 1.25rem;
+        font-weight: 700;
+      }
+      .store small {
+        display: block;
+        font-size: 0.62rem;
+        line-height: 1;
+        opacity: 0.72;
+        margin-bottom: 4px;
+      }
+      .store strong {
+        display: block;
+        font-size: 0.9rem;
+        line-height: 1;
+      }
+      .visual {
+        min-height: min(690px, 70vh);
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .photo {
+        position: absolute;
+        width: clamp(220px, 28vw, 390px);
+        height: clamp(300px, 45vw, 520px);
+        object-fit: cover;
+        border-radius: 28px;
+        box-shadow: 0 24px 70px #1414142e;
+      }
+      .photo-a {
+        left: 0;
+        top: 7%;
+        transform: rotate(-7deg);
+      }
+      .photo-b {
+        right: 2%;
+        bottom: 2%;
+        transform: rotate(7deg);
+      }
+      .phone {
+        width: min(320px, 42vw);
+        aspect-ratio: 9/18.8;
+        border: 9px solid #171717;
+        border-radius: 45px;
+        background: #fff;
+        box-shadow: 0 34px 90px #00000047;
+        position: relative;
+        z-index: 3;
+        overflow: hidden;
+        transform: rotate(2deg);
+      }
+      .phone:before {
+        content: "";
+        position: absolute;
+        top: 7px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 36%;
+        height: 22px;
+        border-radius: 0 0 15px 15px;
+        background: #171717;
+        z-index: 4;
+      }
+      .app {
+        height: 100%;
+        padding: 54px 18px 18px;
+        background: #f8f7f3;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .app-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .app-title {
+        font-family: Unbounded;
+        font-size: 0.78rem;
+        font-weight: 700;
+      }
+      .avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: url("https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=100&q=80")
+          center/cover;
+      }
+      .run-card {
+        background: #151515;
+        color: #fff;
+        border-radius: 22px;
+        padding: 20px;
+        min-height: 190px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        overflow: hidden;
+        position: relative;
+      }
+      .run-card:after {
+        content: "";
+        position: absolute;
+        width: 180px;
+        height: 180px;
+        border: 2px solid var(--orange);
+        border-radius: 50%;
+        right: -65px;
+        bottom: -70px;
+        box-shadow: 0 0 35px #ff5a1f4d;
+      }
+      .run-label {
+        color: #bbb;
+        font-size: 0.7rem;
+      }
+      .distance {
+        font-family: Unbounded;
+        font-size: 2.35rem;
+      }
+      .distance span {
+        color: var(--orange);
+        font-size: 0.8rem;
+      }
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 7px;
+      }
+      .stat {
+        background: #fff;
+        border: 1px solid #e5e2da;
+        border-radius: 14px;
+        padding: 12px 8px;
+      }
+      .stat b {
+        display: block;
+        font-size: 0.85rem;
+        margin-bottom: 3px;
+      }
+      .stat small {
+        color: #777;
+        font-size: 0.6rem;
+      }
+      .community {
+        background: #fff;
+        border-radius: 20px;
+        padding: 14px;
+        border: 1px solid #e5e2da;
+      }
+      .community-top {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        margin-bottom: 12px;
+      }
+      .mini-avatar {
+        width: 27px;
+        height: 27px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+      .community strong {
+        font-size: 0.72rem;
+      }
+      .community small {
+        display: block;
+        color: #777;
+        font-size: 0.58rem;
+      }
+      .route {
+        height: 72px;
+        border-radius: 13px;
+        background: #eee;
+        overflow: hidden;
+      }
+      .route svg {
+        width: 100%;
+        height: 100%;
+      }
+      .floating {
+        position: absolute;
+        z-index: 5;
+        background: #fff;
+        border: 1px solid var(--line);
+        box-shadow: 0 16px 45px #0000001f;
+        border-radius: 18px;
+        padding: 13px 15px;
+        font-size: 0.75rem;
+        font-weight: 700;
+      }
+      .float-1 {
+        top: 12%;
+        right: 1%;
+        transform: rotate(4deg);
+      }
+      .float-2 {
+        left: 7%;
+        bottom: 12%;
+        transform: rotate(-4deg);
+      }
+      .scroll-note {
+        position: absolute;
+        bottom: 18px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 0.7rem;
+        color: #777;
+        letter-spacing: 0.04em;
+      }
+      @media (max-width: 900px) {
+        .hero {
+          min-height: auto;
+          padding-bottom: 90px;
+        }
+        .hero-grid {
+          grid-template-columns: 1fr;
+          margin-top: 55px;
+        }
+        .copy {
+          max-width: 700px;
+        }
+        .visual {
+          min-height: 650px;
+          margin-top: 5px;
+        }
+        .photo-a {
+          left: 4%;
+        }
+        .photo-b {
+          right: 4%;
+        }
+        .phone {
+          width: min(290px, 58vw);
+        }
+        .scroll-note {
+          display: none;
+        }
+      }
+      @media (max-width: 560px) {
+        .hero {
+          padding: 18px 16px 55px;
+        }
+        .nav-link {
+          padding: 9px 13px;
+          font-size: 0.78rem;
+        }
+        h1 {
+          font-size: clamp(2.55rem, 13vw, 4.4rem);
+        }
+        .intro {
+          font-size: 0.95rem;
+        }
+        .store {
+          min-width: 0;
+          flex: 1;
+        }
+        .visual {
+          min-height: 530px;
+        }
+        .photo {
+          width: 48%;
+          height: 68%;
+          border-radius: 20px;
+        }
+        .phone {
+          width: 57%;
+          border-width: 7px;
+          border-radius: 31px;
+        }
+        .float-1 {
+          right: 0;
+          top: 8%;
+        }
+        .float-2 {
+          left: 0;
+          bottom: 7%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="hero">
+      <nav class="nav">
+        <a class="logo" href="#">Link<span>n</span>Run</a
+        ><a class="nav-link" href="#download">Download app</a>
+      </nav>
+      <section class="hero-grid">
+        <div class="copy">
+          <div class="eyebrow">A social running community</div>
+          <h1>
+            Don't just<br /><span class="outline">run.</span><br /><span
+              >link up.</span
+            >
+          </h1>
+          <p class="intro">
+            Find people to run with, track your progress, join challenges, build
+            your community and become better together.
+          </p>
+          <div class="stores" id="download">
+            <a class="store" href="#"
+              ><span class="store-icon">●</span
+              ><span
+                ><small>Download on the</small><strong>App Store</strong></span
+              ></a
+            ><a class="store" href="#"
+              ><span class="store-icon">▶</span
+              ><span
+                ><small>GET IT ON</small><strong>Google Play</strong></span
+              ></a
+            >
+          </div>
+        </div>
+        <div class="visual">
+          <img
+            class="photo photo-a"
+            src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=900&q=85"
+            alt="Runners exercising together"
+          /><img
+            class="photo photo-b"
+            src="https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=900&q=85"
+            alt="People enjoying a fitness activity"
+          />
+          <div class="phone">
+            <div class="app">
+              <div class="app-head">
+                <div class="app-title">LinknRun</div>
+                <div class="avatar"></div>
+              </div>
+              <div class="run-card">
+                <span class="run-label">Today's run</span>
+                <div class="distance">5.82 <span>KM</span></div>
+                <span class="run-label">Your morning session</span>
+              </div>
+              <div class="stats">
+                <div class="stat"><b>5:24</b><small>PACE</small></div>
+                <div class="stat"><b>31:27</b><small>TIME</small></div>
+                <div class="stat"><b>421</b><small>CAL</small></div>
+              </div>
+              <div class="community">
+                <div class="community-top">
+                  <img
+                    class="mini-avatar"
+                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=80&q=80"
+                    alt=""
+                  />
+                  <div>
+                    <strong>Sarah is running</strong><small>2.4 km away</small>
+                  </div>
+                </div>
+                <div class="route">
+                  <svg viewBox="0 0 300 100" preserveAspectRatio="none">
+                    <path
+                      d="M0 70 C45 5, 80 92, 125 42 S205 8, 240 55 S275 82, 300 25"
+                      fill="none"
+                      stroke="#FF5A1F"
+                      stroke-width="5"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="floating float-1">🏃 12 runners nearby</div>
+          <div class="floating float-2">🔥 7 day streak</div>
+        </div>
+      </section>
+      <div class="scroll-note">SCROLL TO EXPLORE ↓</div>
+    </main>
+  </body>
+</html>
