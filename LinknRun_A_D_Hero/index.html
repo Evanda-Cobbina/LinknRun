@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Unbounded:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/hero.css">
+  <style>.phone-screen.screenshot-screen{padding:0!important;display:block;overflow:hidden;background:#090909}.app-screenshot{display:block;width:100%;height:100%;object-fit:cover;object-position:center;border-radius:inherit}.hero-app-phone{width:clamp(285px,23vw,330px);height:clamp(590px,48vw,680px)}@media(max-width:800px){.hero-app-phone{width:220px;height:450px}}@media(max-width:480px){.hero-app-phone{width:195px;height:400px}}</style>
 </head>
 <body>
 
@@ -56,29 +57,10 @@
       <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=700&q=85" alt="Runner outdoors">
     </div>
 
-    <div class="phone">
+    <div class="phone hero-app-phone" aria-label="LinknRun app screenshot preview">
       <div class="phone-speaker"></div>
-      <div class="phone-screen">
-        <div class="app-header">
-          <div><span class="app-small">GOOD MORNING</span><strong>Alex 👋</strong></div>
-          <div class="app-avatar">A</div>
-        </div>
-        <div class="run-card">
-          <div class="run-card-top"><span>TODAY'S RUN</span><span class="run-live">LIVE</span></div>
-          <div class="run-distance">5.24 <span>KM</span></div>
-          <div class="run-stats">
-            <div><strong>28:42</strong><span>TIME</span></div>
-            <div><strong>5:28</strong><span>PACE</span></div>
-            <div><strong>382</strong><span>CAL</span></div>
-          </div>
-          <div class="route-map"><svg viewBox="0 0 300 150" preserveAspectRatio="none"><path d="M10 130 C45 105,30 75,70 82 C110 90,90 25,135 45 C175 65,145 120,195 105 C235 90,210 40,290 25"/><circle cx="10" cy="130" r="5"/><circle cx="290" cy="25" r="6"/></svg></div>
-        </div>
-        <div class="social-card">
-          <div class="social-top"><div class="mini-avatar">J</div><div><strong>Jordan completed a run</strong><span>2 min ago</span></div></div>
-          <div class="social-distance">8.7 km</div>
-          <div class="social-actions"><span>♥ 24</span><span>💬 6</span></div>
-        </div>
-        <div class="app-navigation"><span class="active"><i>⌂</i>Home</span><span><i>◉</i>Run</span><span><i>♧</i>People</span><span><i>●</i>Profile</span></div>
+      <div class="phone-screen screenshot-screen">
+        <img class="app-screenshot" src="../media/Screenshot_20261009-150430.png" alt="LinknRun app home screen showing community and activity features" />
       </div>
     </div>
 
